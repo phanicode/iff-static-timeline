@@ -99,3 +99,27 @@ if (document.readyState != 'loading') {
 } else {
   document.addEventListener('DOMContentLoaded', onload);
 }
+
+function clearLeftFilters() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"][name="filter"]');
+  checkboxes.forEach(function (box) {
+    if (content.filters.filtersLeft.includes(box.id)) {
+      box.checked = false;
+    }
+  });
+  hideUnchecked(); // Trigger filter update after clearing
+}
+
+function clearRightFilters() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"][name="filter"]');
+  checkboxes.forEach(function (box) {
+    if (content.filters.filtersRight.includes(box.id)) {
+      box.checked = false;
+    }
+  });
+  hideUnchecked(); // Trigger filter update after clearing
+}
+
+// Event listeners for Clear Filters buttons
+// document.getElementById('clearLeftFilters').addEventListener('click', clearLeftFilters);
+// document.getElementById('clearRightFilters').addEventListener('click', clearRightFilters);
